@@ -45,10 +45,17 @@ class Messwerte:
         return 'Messwerte("'+self.zeit+'",'+ str(self.temperatur)+")"
     
     
+    def get(self):
+        return (self.zeit,self.temperatur)    
+    
+    def __getitem__(self, key):
+        if key <= 0:
+            return self.zeit
+        else:
+            return self.temperatur
         
 
-
-
+        
 
 
 

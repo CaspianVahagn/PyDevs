@@ -11,10 +11,10 @@ from Classes.Messreihe import Mengenreihe
 from random import randint
 
 def readfile():
-    mw = []
+    mw = Mengenreihe();
     with open('messwerte.csv') as fp:
         for line in fp:
-            mw.append(Messwerte(line)) 
+            mw.add(Messwerte(line)) 
 
 
             
@@ -22,20 +22,26 @@ def readfile():
     
 if __name__ == '__main__':
     mws = readfile()
-    test = []
+    mws2 = Mengenreihe
     for i in range(0,20):
-        test.append(mws[randint(0,len(mws))])
+        mws2.add(str(mws[randint(0,len(mws))]))
         
-    print("UNSORTED LIST:")
-    for x in test: 
+
+    for x in mws[:5]:
         print(x)
         
-        
-    print("SORTED LIST:")
-    test = sorted(test)
     
-    for x in test: 
-       
-        print(eval(repr(x))== x )
+    print(mws[:5].durchschnitt())
+    print(mws["2013-07-15 16:30:01"])
+    for s in mws2:
+        print(s)
+    
+    mws2 = mws2.sorted()
+    
+    for s in mws2:
+        print(s)
+    
+    print(mws2.min())
+    print(mws2.max())
     
     
